@@ -1,0 +1,35 @@
+{
+  "comptes": [
+    {
+      "id": "1",
+      "numero": "FR76 1234 5678 9012",
+      "proprietaire": "Jean Dupont",
+      "solde": 1500.5,
+      "type": "courant"
+    },
+    {
+      "id": "2",
+      "numero": "FR76 9876 5432 1098",
+      "proprietaire": "Marie Curie",
+      "solde": 4500,
+      "type": "epargne",
+      "tauxInteret": 2.5
+    }
+  ],
+  "operations": [
+    {
+      "id": "o1",
+      "montant": 500,
+      "date": "2026-06-09T08:30:00.000Z",
+      "compteId": "1",
+      "type": "depot"
+    },
+    {
+      "id": "o2",
+      "montant": 200,
+      "date": "2026-06-09T09:15:00.000Z",
+      "compteId": "2",
+      "type": "retrait"
+    }
+  ]
+}
