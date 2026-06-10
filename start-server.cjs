@@ -8,37 +8,44 @@ const dbPath = path.join(__dirname, 'db.json');
 const defaultData = {
   "comptes": [
     {
-      "id": "1",
-      "numero": "FR76 1234 5678 9012",
-      "proprietaire": "Jean Dupont",
-      "solde": 1500.5,
+      "id": "f_hzEhESfNo",
+      "numero": "SDFEWS 09873 08329R SDFSD",
+      "proprietaire": "Katsuva Malambo",
+      "solde": 313861,
       "type": "courant"
     },
     {
-      "id": "2",
-      "numero": "FR76 9876 5432 1098",
-      "proprietaire": "Marie Curie",
-      "solde": 4500,
+      "id": "FDUbxcGKB2g",
+      "numero": "LSDKFJ 03284 WER0234",
+      "proprietaire": "Katsuva Vatsu",
+      "solde": 1000200,
       "type": "epargne",
-      "tauxInteret": 2.5
+      "tauxInteret": 5
     }
   ],
   "operations": [
     {
-      "id": "o1",
-      "montant": 500,
-      "date": "2026-06-09T08:30:00.000Z",
-      "compteId": "1",
+      "id": "aiN-ADpeWk0",
+      "montant": 200,
+      "date": "2026-06-10T08:00:16.202Z",
+      "compteId": "FDUbxcGKB2g",
       "type": "depot"
     },
     {
-      "id": "o2",
-      "montant": 200,
-      "date": "2026-06-09T09:15:00.000Z",
-      "compteId": "2",
+      "id": "4LKA3huiPzc",
+      "montant": 87,
+      "date": "2026-06-10T08:01:07.378Z",
+      "compteId": "f_hzEhESfNo",
       "type": "retrait"
+    },
+    {
+      "id": "RxA_sZEeKuk",
+      "montant": 3245,
+      "date": "2026-06-10T08:17:04.954Z",
+      "compteId": "f_hzEhESfNo",
+      "type": "depot"
     }
-  ]
+  ],
 };
 
 function createDbFile() {
@@ -93,10 +100,10 @@ function checkAndStart() {
   try {
     // Check if zenity works
     execSync('which zenity', { stdio: 'ignore' });
-    
+
     // Run zenity --question
     const zenityCmd = `zenity --question --title="POO Bank - Fichier db.json manquant" --text="Le fichier db.json est introuvable.\\n\\nVoulez-vous le créer automatiquement avec les données par défaut pour démarrer le serveur ?" --ok-label="Créer" --cancel-label="Annuler"`;
-    
+
     try {
       execSync(zenityCmd, { stdio: 'ignore' });
       // If execSync finishes with exit code 0 (success)
