@@ -154,14 +154,18 @@ export class CompteFactory {
 
 ## 📂 Structure du Code Source
 
-Voici l'organisation des fichiers dans le dossier [src/](file:///media/work/Scripts/Github/Projet_POO_l2/src) :
+Voici l'organisation générale des fichiers du projet :
 
 ```bash
-src/
-├── main.tsx                # Point d'entrée de l'application React
-├── App.tsx                 # Routeur principal et structure globale du site
-├── App.css & index.css     # Styles globaux (Tailwind CSS v4 & DaisyUI)
-│
+.
+├── db.json                 # Base de données locale (générée automatiquement si absente)
+├── start-server.js         # Script Node.js de lancement et vérification de la base de données (pop-up)
+├── package.json            # Configuration npm, scripts et dépendances du projet
+└── src/
+    ├── main.tsx                # Point d'entrée de l'application React
+    ├── App.tsx                 # Routeur principal et structure globale du site
+    ├── App.css & index.css     # Styles globaux (Tailwind CSS v4 & DaisyUI)
+    │
 ├── models/                 # Modèles de données POO (Classes métiers)
 │   ├── Compte.ts           # Classe abstraite de base d'un compte
 │   ├── CompteCourant.ts    # Sous-classe Compte Courant
@@ -240,6 +244,9 @@ Pour simuler la base de données, lancez le serveur fictif sur le port 3001 :
 ```bash
 npm run server
 ```
+> [!NOTE]
+> **Création automatique de `db.json`** : Si le fichier `db.json` est introuvable (par exemple lors de la première installation ou après suppression), le script `start-server.js` s'exécute pour vérifier sa présence. Il tente alors d'ouvrir un pop-up graphique sur votre bureau (via `/usr/bin/zenity`) pour vous proposer de le recréer automatiquement avec des données de démonstration. Si vous refusez ou si vous lancez la commande en mode console pur (sans écran graphique), le script vous posera directement la question dans votre terminal.
+
 *Le serveur tourne désormais à l'adresse : `http://localhost:3001`.*
 
 ### 3. Démarrer l'application Web (Vite dev)
