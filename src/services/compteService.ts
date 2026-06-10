@@ -2,7 +2,8 @@ import axios from 'axios';
 import { Compte } from '../models/Compte';
 import { CompteFactory } from '../models/CompteFactory';
 
-const API_URL = 'http://localhost:3001/comptes';
+const BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const API_URL = `${BASE_URL}/comptes`;
 
 export class CompteService {
   static async getAll(): Promise<Compte[]> {

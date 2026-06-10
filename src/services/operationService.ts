@@ -3,7 +3,8 @@ import { Operation } from '../models/Operation';
 import { OperationFactory } from '../models/OperationFactory';
 import { CompteService } from './compteService';
 
-const API_URL = 'http://localhost:3001/operations';
+const BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const API_URL = `${BASE_URL}/operations`;
 
 export class OperationService {
   static async getAll(): Promise<Operation[]> {
