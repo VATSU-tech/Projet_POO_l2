@@ -8,14 +8,14 @@ import { CompteForm } from '../components/CompteForm';
 import { DepotForm } from '../components/DepotForm';
 import { RetraitForm } from '../components/RetraitForm';
 import { HistoriqueOperations } from '../components/HistoriqueOperations';
+import { useToast } from '../components/Toast';
 
 export const Comptes: React.FC = () => {
+  const { showToast } = useToast();
   const [comptes, setComptes] = useState<Compte[]>([]);
   const [operations, setOperations] = useState<Operation[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-
-  // Modal states
   const [activeModal, setActiveModal] = useState<'create' | 'deposit' | 'withdraw' | null>(null);
   const [selectedCompteId, setSelectedCompteId] = useState<string | undefined>(undefined);
 
@@ -43,18 +43,21 @@ export const Comptes: React.FC = () => {
 
   const handleCreateSuccess = () => {
     setActiveModal(null);
+    showToast("Le compte a été créé avec succès !", "success");
     refreshData();
   };
 
   const handleDepositSuccess = () => {
     setActiveModal(null);
     setSelectedCompteId(undefined);
+    showToast("Le dépôt a été effectué avec succès !", "success");
     refreshData();
   };
 
   const handleWithdrawSuccess = () => {
     setActiveModal(null);
     setSelectedCompteId(undefined);
+    showToast("Le retrait a été effectué avec succès !", "success");
     refreshData();
   };
 
@@ -62,9 +65,10 @@ export const Comptes: React.FC = () => {
     if (window.confirm("Êtes-vous sûr de vouloir supprimer ce compte ?")) {
       try {
         await CompteService.delete(id);
+        showToast("Le compte a été supprimé avec succès !", "success");
         refreshData();
       } catch (err: any) {
-        alert("Impossible de supprimer le compte: " + err.message);
+        showToast("Impossible de supprimer le compte: " + err.message, "error");
       }
     }
   };

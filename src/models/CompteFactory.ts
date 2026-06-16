@@ -10,10 +10,11 @@ export class CompteFactory {
     solde?: number;
     type: 'courant' | 'epargne';
     tauxInteret?: number;
+    decouvertAutorise?: number;
   }): Compte {
     const solde = data.solde ?? 0;
     if (data.type === 'courant') {
-      return new CompteCourant(data.id, data.numero, data.proprietaire, solde);
+      return new CompteCourant(data.id, data.numero, data.proprietaire, solde, data.decouvertAutorise);
     } else if (data.type === 'epargne') {
       return new CompteEpargne(data.id, data.numero, data.proprietaire, solde, data.tauxInteret ?? 0);
     }

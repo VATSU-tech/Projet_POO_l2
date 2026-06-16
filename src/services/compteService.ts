@@ -22,6 +22,7 @@ export class CompteService {
     solde?: number;
     type: 'courant' | 'epargne';
     tauxInteret?: number;
+    decouvertAutorise?: number;
   }): Promise<Compte> {
     const id = Date.now().toString();
     const payload = {
@@ -30,7 +31,8 @@ export class CompteService {
       proprietaire: compteData.proprietaire,
       solde: compteData.solde ?? 0,
       type: compteData.type,
-      ...(compteData.type === 'epargne' ? { tauxInteret: compteData.tauxInteret ?? 0 } : {})
+      ...(compteData.type === 'epargne' ? { tauxInteret: compteData.tauxInteret ?? 0 } : {}),
+      ...(compteData.type === 'courant' ? { decouvertAutorise: compteData.decouvertAutorise ?? 400 } : {})
     };
     const response = await axios.post(API_URL, payload);
     return CompteFactory.create(response.data);
@@ -46,6 +48,8 @@ export class CompteService {
     };
     if (compte.type === 'epargne') {
       payload.tauxInteret = (compte as any).tauxInteret;
+    } else if (compte.type === 'courant') {
+      payload.decouvertAutorise = (compte as any).decouvertAutorise;
     }
     const response = await axios.put(`${API_URL}/${compte.id}`, payload);
     return CompteFactory.create(response.data);

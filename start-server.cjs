@@ -51,23 +51,23 @@ const defaultData = {
 function createDbFile() {
   try {
     fs.writeFileSync(dbPath, JSON.stringify(defaultData, null, 2), 'utf8');
-    console.log("✅ Le fichier db.json a été créé avec succès avec les données par défaut.");
+    console.log("Le fichier db.json a été créé avec succès avec les données par défaut.");
     return true;
   } catch (err) {
-    console.error("❌ Erreur lors de la création de db.json :", err.message);
+    console.error("Erreur lors de la création de db.json :", err.message);
     return false;
   }
 }
 
 function startJsonServer() {
-  console.log("🚀 Lancement de json-server sur le port 3001...");
+  console.log("Lancement de json-server sur le port 3001...");
   const server = spawn('npx', ['json-server', '--watch', 'db.json', '--port', '3001'], {
     stdio: 'inherit',
     shell: true
   });
 
   server.on('error', (err) => {
-    console.error("❌ Erreur lors du lancement de json-server :", err.message);
+    console.error("Erreur lors du lancement de json-server :", err.message);
   });
 }
 
@@ -94,7 +94,7 @@ function checkAndStart() {
     return;
   }
 
-  console.log("🔍 db.json introuvable. Tentative d'affichage d'un pop-up...");
+  console.log("db.json introuvable. Tentative d'affichage d'un pop-up...");
 
   // Try to use zenity for a GUI popup
   try {
@@ -110,31 +110,31 @@ function checkAndStart() {
       if (createDbFile()) {
         startJsonServer();
       } else {
-        console.log("❌ Impossible de démarrer le serveur sans db.json.");
+        console.log("Impossible de démarrer le serveur sans db.json.");
       }
     } catch (e) {
       // User clicked Cancel, or GUI display is not available
-      console.log("⚠️ Pop-up refusé ou non disponible. Passage au mode terminal...");
+      console.log("Pop-up refusé ou non disponible. Passage au mode terminal...");
       askCli((shouldCreate) => {
         if (shouldCreate) {
           if (createDbFile()) {
             startJsonServer();
           }
         } else {
-          console.log("❌ Lancement annulé par l'utilisateur.");
+          console.log("Lancement annulé par l'utilisateur.");
         }
       });
     }
   } catch (err) {
     // zenity is not installed
-    console.log("⚠️ Pop-up graphique non disponible. Utilisation du mode terminal...");
+    console.log("Pop-up graphique non disponible. Utilisation du mode terminal...");
     askCli((shouldCreate) => {
       if (shouldCreate) {
         if (createDbFile()) {
           startJsonServer();
         }
       } else {
-        console.log("❌ Lancement annulé par l'utilisateur.");
+        console.log("Lancement annulé par l'utilisateur.");
       }
     });
   }

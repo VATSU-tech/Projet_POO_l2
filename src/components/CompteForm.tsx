@@ -12,6 +12,7 @@ export const CompteForm: React.FC<CompteFormProps> = ({ onSuccess, onCancel }) =
   const [solde, setSolde] = useState<number | undefined>(undefined);
   const [type, setType] = useState<'courant' | 'epargne'>('courant');
   const [tauxInteret, setTauxInteret] = useState<number>(1.5);
+  const [decouvertAutorise, setDecouvertAutorise] = useState<number>(400);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -30,12 +31,14 @@ export const CompteForm: React.FC<CompteFormProps> = ({ onSuccess, onCancel }) =
         solde: solde,
         type,
         tauxInteret: type === 'epargne' ? tauxInteret : undefined,
+        decouvertAutorise: type === 'courant' ? decouvertAutorise : undefined,
       });
       // Clear form
       setNumero('');
       setProprietaire('');
       setSolde(undefined);
       setType('courant');
+      setDecouvertAutorise(400);
       onSuccess();
     } catch (err: any) {
       setError(err.response?.data?.message || err.message || "Une erreur est survenue lors de la création du compte.");
@@ -110,7 +113,7 @@ export const CompteForm: React.FC<CompteFormProps> = ({ onSuccess, onCancel }) =
         </div>
       </div>
 
-      {type === 'epargne' && (
+      {type === 'epargne' ? (
         <div className="form-control transition-all duration-300 ease-in-out">
           <label className="label">
             <span className="label-text font-medium text-base-content/75">Taux d'intérêt (%)</span>
@@ -122,6 +125,21 @@ export const CompteForm: React.FC<CompteFormProps> = ({ onSuccess, onCancel }) =
             placeholder="Ex: 2.5"
             value={tauxInteret}
             onChange={(e) => setTauxInteret(parseFloat(e.target.value) || 0)}
+            required
+          />
+        </div>
+      ) : (
+        <div className="form-control transition-all duration-300 ease-in-out">
+          <label className="label">
+            <span className="label-text font-medium text-base-content/75">Découvert autorisé (€)</span>
+          </label>
+          <input
+            type="number"
+            step="1"
+            className="input input-bordered w-full bg-base-200/50 focus:bg-base-100 transition-all duration-200"
+            placeholder="Ex: 400"
+            value={decouvertAutorise}
+            onChange={(e) => setDecouvertAutorise(parseFloat(e.target.value) || 0)}
             required
           />
         </div>

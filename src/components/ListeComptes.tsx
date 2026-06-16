@@ -30,7 +30,7 @@ export const ListeComptes: React.FC<ListeComptesProps> = ({
             <th className="font-semibold text-base-content/70">Numéro de compte</th>
             <th className="font-semibold text-base-content/70">Propriétaire</th>
             <th className="font-semibold text-base-content/70">Type</th>
-            <th className="font-semibold text-base-content/70">Taux d'intérêt</th>
+            <th className="font-semibold text-base-content/70">Taux / Découvert</th>
             <th className="text-right font-semibold text-base-content/70">Solde</th>
             <th className="text-center font-semibold text-base-content/70">Actions</th>
           </tr>
@@ -51,9 +51,9 @@ export const ListeComptes: React.FC<ListeComptesProps> = ({
               </td>
               <td>
                 {c.type === 'epargne' ? (
-                  <span className="text-sm font-medium text-base-content/70">{(c as any).tauxInteret} %</span>
+                  <span className="text-sm font-medium text-base-content/70">Taux: {(c as any).tauxInteret} %</span>
                 ) : (
-                  <span className="text-sm text-base-content/30">-</span>
+                  <span className="text-sm font-medium text-base-content/70">Découvert: {(c as any).decouvertAutorise} €</span>
                 )}
               </td>
               <td className="text-right font-semibold text-base-content">

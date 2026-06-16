@@ -4,8 +4,9 @@
       "id": "f_hzEhESfNo",
       "numero": "SDFEWS 09873 08329R SDFSD",
       "proprietaire": "Katsuva Malambo",
-      "solde": 313861,
-      "type": "courant"
+      "solde": 313993,
+      "type": "courant",
+      "decouvertAutorise": 400
     },
     {
       "id": "FDUbxcGKB2g",
@@ -35,6 +36,13 @@
       "id": "RxA_sZEeKuk",
       "montant": 3245,
       "date": "2026-06-10T08:17:04.954Z",
+      "compteId": "f_hzEhESfNo",
+      "type": "depot"
+    },
+    {
+      "id": "dGTMp_uX55o",
+      "montant": 132,
+      "date": "2026-06-16T18:46:36.369Z",
       "compteId": "f_hzEhESfNo",
       "type": "depot"
     }
