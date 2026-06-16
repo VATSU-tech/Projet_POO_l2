@@ -1,4 +1,4 @@
-# 🏦 POO Bank - Gestionnaire Bancaire (TP POO L2)
+# POO Bank - Gestionnaire Bancaire (TP POO L2)
 
 Bienvenue dans **POO Bank**, une application Web moderne de simulation de gestion de comptes bancaires conçue pour illustrer les principes fondamentaux de la **Programmation Orientée Objet (POO)**.
 
@@ -6,22 +6,22 @@ Ce projet est développé avec **React**, **TypeScript**, **Tailwind CSS**, **da
 
 ---
 
-## 📖 Sommaire
+## Sommaire
 
-1. [🚀 Aperçu et Fonctionnalités](#-aperçu-et-fonctionnalités)
-2. [🏗️ Architecture de l'Application](#️-architecture-de-lapplication)
-3. [🧩 Les Concepts POO Appliqués (Expliqués en détail)](#-les-concepts-poo-appliqués-expliqués-en-détail)
+1. [Aperçu et Fonctionnalités](#-aperçu-et-fonctionnalités)
+2. [Architecture de l'Application](#️-architecture-de-lapplication)
+3. [Les Concepts POO Appliqués (Expliqués en détail)](#-les-concepts-poo-appliqués-expliqués-en-détail)
    - [Encapsulation](#1-lencapsulation)
    - [Héritage](#2-lhéritage)
    - [Polymorphisme](#3-le-polymorphisme)
    - [Le Design Pattern Factory (Fabrique)](#4-le-design-pattern-factory-fabrique)
-4. [📂 Structure du Code Source](#-structure-du-code-source)
-5. [🔔 Le Système de Notifications (Toasts Globaux)](#-le-système-de-notifications-toasts-globaux)
-6. [🛠️ Guide de Démarrage et Installation](#️-guide-de-démarrage-et-installation)
+4. [Structure du Code Source](#-structure-du-code-source)
+5. [Le Système de Notifications (Toasts Globaux)](#-le-système-de-notifications-toasts-globaux)
+6. [Guide de Démarrage et Installation](#️-guide-de-démarrage-et-installation)
 
 ---
 
-## 🚀 Aperçu et Fonctionnalités
+## Aperçu et Fonctionnalités
 
 **POO Bank** simule les opérations quotidiennes d'une agence bancaire à travers une interface visuelle épurée et interactive :
 
@@ -63,7 +63,7 @@ sequenceDiagram
 
 ---
 
-## 🧩 Les Concepts POO Appliqués (Expliqués en détail)
+## Les Concepts POO Appliqués (Expliqués en détail)
 
 La Programmation Orientée Objet (POO) est une méthode de programmation consistant à structurer le code sous forme de "modèles" appelés **classes**, qui représentent des concepts du monde réel (ici, des comptes bancaires et des transactions).
 
@@ -163,7 +163,7 @@ export class CompteFactory {
 
 ---
 
-## 📂 Structure du Code Source
+## Structure du Code Source
 
 Voici l'organisation générale des fichiers du projet :
 
@@ -206,7 +206,7 @@ Voici l'organisation générale des fichiers du projet :
 
 ---
 
-## 🔔 Le Système de Notifications (Toasts Globaux)
+## Le Système de Notifications (Toasts Globaux)
 
 Toutes les notifications d'erreur, de succès et d'information de l'application sont gérées à l'aide d'un système de **Toast** centralisé implémenté dans le fichier [Toast.tsx](file:///media/work/Scripts/Github/Projet_POO_l2/src/components/Toast.tsx).
 
@@ -240,7 +240,7 @@ const MonComposant = () => {
 
 ---
 
-## 🛠️ Guide de Démarrage et Installation
+## Guide de Démarrage et Installation
 
 ### Prérequis
 
